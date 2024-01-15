@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "128471126996",
+    "firebase_url": "https://partypal-f4bea-default-rtdb.firebaseio.com",
+    "project_id": "partypal-f4bea",
+    "storage_bucket": "partypal-f4bea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128471126996:android:fb4ac5c2a0d5f409dbfc41",
+        "android_client_info": {
+          "package_name": "com.example.PartyPal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGV4Qy51HxfF5xZWcGvqs_Mxx5ittotDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

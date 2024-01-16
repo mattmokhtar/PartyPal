@@ -9,7 +9,7 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.PartyPal" />
-                  <option name="mobileSdkAppId" value="1:128471126996:android:fb4ac5c2a0d5f409dbfc41" />
+                  <option name="mobileSdkAppId" value="1:128471126996:android:5a7f5821df21405ddbfc41" />
                   <option name="projectId" value="partypal-f4bea" />
                   <option name="projectNumber" value="128471126996" />
                 </ConnectionSetting>

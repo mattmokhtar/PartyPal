@@ -21,5 +21,11 @@
             android:icon="@drawable/baseline_shopping_cart_24"
             android:title="@string/myCart" />
 
+        <item
+            android:id="@+id/nav_postparty"
+            android:icon="@drawable/baseline_shopping_cart_24"
+            android:title="@string/post_party" />
+
+
     </group>
 </menu>

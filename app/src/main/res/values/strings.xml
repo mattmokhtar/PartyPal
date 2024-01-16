@@ -25,4 +25,5 @@
     <string name="view_more">View More</string>
     <string name="payment">fragment_payment</string>
     <string name="maps">fragment_maps</string>
+    <string name="post_party">Post Party</string>
 </resources>

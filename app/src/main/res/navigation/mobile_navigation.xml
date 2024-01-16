@@ -40,6 +40,6 @@
     <fragment
         android:id="@+id/nav_postparty"
         android:name="com.example.PartyPal.ui.postparty.PostPartyFragment"
-        android:label="fragment_postparty"
+        android:label="Post Party"
         tools:layout="@layout/fragment_postparty" />
 </navigation>

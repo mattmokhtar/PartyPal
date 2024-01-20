@@ -10,13 +10,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="ump_food_delivery">UMP Food Delivery</string>
+
     <string name="full_name">Full Name</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
-    <string name="daily_meal">Daily Meal</string>
+    <string name="yourpost">Your Post</string>
     <string name="favourite">Favourite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

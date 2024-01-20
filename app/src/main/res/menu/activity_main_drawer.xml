@@ -13,7 +13,7 @@
             android:icon="@drawable/baseline_shopping_cart_24"
             android:title="@string/post_party" />
         <item
-            android:id="@+id/nav_daily_meal"
+            android:id="@+id/nav_yourpost"
             android:icon="@drawable/baseline_set_meal_24"
             android:title="@string/your_post" />
     </group>

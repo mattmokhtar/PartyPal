@@ -1,26 +1,21 @@
 package com.example.PartyPal.ui.postparty;
 
-// PartyModel.java
 public class PostPartyModel {
     public String partyTitle;
     public String hostName;
-    public String contactInfo;
+    public String contactInformation;
     public String partyDescription;
-    public String dateTime;
-    public String location;
+    public String partyDate;
+    public String partyLocation;
 
-    // Default constructor required for calls to DataSnapshot.getValue(PartyModel.class)
-    public PostPartyModel() {
-    }
 
-    // Constructor to initialize the model
-    public PostPartyModel(String partyTitle, String hostName, String contactInfo, String partyDescription, String dateTime, String location) {
+    public PostPartyModel(String partyTitle, String hostName, String contactInformation, String partyDescription, String partyDate, String partyLocation) {
         this.partyTitle = partyTitle;
         this.hostName = hostName;
-        this.contactInfo = contactInfo;
+        this.contactInformation = contactInformation;
         this.partyDescription = partyDescription;
-        this.dateTime = dateTime;
-        this.location = location;
+        this.partyDate = partyDate;
+        this.partyLocation = partyLocation;
     }
 }
 

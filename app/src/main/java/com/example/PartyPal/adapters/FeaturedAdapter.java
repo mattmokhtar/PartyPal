@@ -51,7 +51,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.featured_img);
+
             name = itemView.findViewById(R.id.featured_name);
             desc = itemView.findViewById(R.id.featured_des);
         }

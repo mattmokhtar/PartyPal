@@ -11,67 +11,79 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.PartyPal.R;
-import com.example.PartyPal.adapters.HomeHorAdapter;
 import com.example.PartyPal.adapters.HomeVerAdapter;
 import com.example.PartyPal.adapters.UpdateVerticalRec;
-import com.example.PartyPal.databinding.FragmentHomeBinding;
-import com.example.PartyPal.models.HomeHorModel;
 import com.example.PartyPal.models.HomeVerModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements UpdateVerticalRec {
 
-    RecyclerView homeHorizontalRec,homeVerticalRec;
-    ArrayList<HomeHorModel> homeHorModelList;
-    HomeHorAdapter homeHorAdapter;
+    private RecyclerView homeVerticalRec;
+    private ArrayList<HomeVerModel> homeVerModelList;
+    private HomeVerAdapter homeVerAdapter;
 
-    ///////////////////////////vertical
-    ArrayList<HomeVerModel> homeVerModelList;
-    HomeVerAdapter homeVerAdapter;
+    private DatabaseReference databaseReference;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        View root = inflater.inflate(R.layout.fragment_home,container,false);
-
-        homeHorizontalRec = root.findViewById(R.id.home_hor_rec);
         homeVerticalRec = root.findViewById(R.id.home_ver_rec);
-
-        /////////////horizontal recyclerview
-        homeHorModelList = new ArrayList<>();
-
-        homeHorModelList.add(new HomeHorModel(R.drawable.pizza, "Pizza"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.hamburger, "Hamburger"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.fries1, "Fries"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.ice_cream, "Ice Cream"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.sandwich, "Sandwich"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.logo, "New"));
-        homeHorModelList.add(new HomeHorModel(R.drawable.coffee, "Coffee"));
-
-        homeHorAdapter = new HomeHorAdapter(this,getActivity(),homeHorModelList);
-        homeHorizontalRec.setAdapter(homeHorAdapter);
-        homeHorizontalRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
-        homeHorizontalRec.setHasFixedSize(true);
-        homeHorizontalRec.setNestedScrollingEnabled(false);
-
-        /////////////vertical recyclerview
-
         homeVerModelList = new ArrayList<>();
+        homeVerAdapter = new HomeVerAdapter(getActivity(), homeVerModelList);
 
-
-        homeVerAdapter = new HomeVerAdapter(getActivity(),homeVerModelList);
         homeVerticalRec.setAdapter(homeVerAdapter);
-        homeVerticalRec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false));
+        homeVerticalRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
 
+        // Initialize Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference("parties");
+
+        // Fetch party data from Firebase
+        fetchPartyData();
 
         return root;
     }
 
+    private void fetchPartyData() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                homeVerModelList.clear();
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    // Retrieve data from the snapshot
+                    String hostName = dataSnapshot.child("hostName").getValue(String.class);
+                    String partyTitle = dataSnapshot.child("partyTitle").getValue(String.class);
+                    String contactInformation = dataSnapshot.child("contactInformation").getValue(String.class);
+                    String partyDescription = dataSnapshot.child("partyDescription").getValue(String.class);
+                    String partyDate = dataSnapshot.child("partyDate").getValue(String.class);
+                    String partyLocation = dataSnapshot.child("partyLocation").getValue(String.class);
+
+                    // Create a HomeVerModel object
+                    HomeVerModel party = new HomeVerModel(hostName, partyTitle, contactInformation, partyDescription, partyDate, partyLocation);
+
+                    // Add the party to the list
+                    homeVerModelList.add(party);
+                }
+
+                // Notify the adapter that the data has changed
+                homeVerAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error
+            }
+        });
+    }
+
     @Override
     public void callBack(int position, ArrayList<HomeVerModel> list) {
-        homeVerAdapter = new HomeVerAdapter(getContext(),list);
-        homeVerAdapter.notifyDataSetChanged();
-        homeVerticalRec.setAdapter(homeVerAdapter);
-
+        // Callback implementation if needed
     }
 }

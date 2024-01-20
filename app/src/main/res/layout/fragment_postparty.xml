@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.postparty.PostPartyFragment">
 
+
     <!-- Party Title -->
     <TextView
         android:id="@+id/text_gallery"
@@ -30,11 +31,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Party Title"
+        android:hint="@string/party_title"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <!-- Host Name -->
     <EditText
@@ -44,11 +46,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Host Name"
+        android:hint="@string/host_name"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPartyTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPartyTitle"
+        android:autofillHints="" />
 
     <!-- Contact Information -->
     <EditText
@@ -58,12 +61,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Contact Information"
+        android:hint="@string/contact_information"
         android:inputType="textCapSentences"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextHostName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextHostName"
+        android:autofillHints="" />
 
     <!-- Party Description -->
     <EditText
@@ -73,12 +77,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Party Description"
+        android:hint="@string/party_description"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextContactInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextContactInfo"
+        android:autofillHints="" />
 
     <!-- Date and Time -->
     <EditText
@@ -88,12 +93,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Date and Time (e.g., Sunday, May 22nd, 2:00 PM to 4:00 PM)"
+        android:hint="@string/date_and_time_e_g_sunday_may_22nd_2_00_pm_to_4_00_pm"
         android:inputType="datetime"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPartyDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPartyDescription"
+        android:autofillHints="" />
 
     <!-- Location -->
     <EditText
@@ -103,11 +109,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Location"
+        android:hint="@string/location"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDateTime" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDateTime"
+        android:autofillHints="" />
 
     <!-- Submit Button -->
     <Button
@@ -115,7 +122,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Submit"
+        android:text="@string/submit"
+        android:textColor="#212121"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />

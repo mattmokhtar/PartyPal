@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food Delivery</string>
+    <string name="app_name">PartyPal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -26,4 +26,15 @@
     <string name="payment">fragment_payment</string>
     <string name="maps">fragment_maps</string>
     <string name="post_party">Post Party</string>
+    <string name="don_t_have_account">Don\'t Have Account?</string>
+    <string name="partypal">PartyPal</string>
+    <string name="submit">Submit</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="date_and_time_e_g_sunday_may_22nd_2_00_pm_to_4_00_pm">Date and Time (e.g., Sunday, May 22nd, 2:00 PM to 4:00 PM)</string>
+    <string name="host_name">Host Name</string>
+    <string name="location">Location</string>
+    <string name="party_description">Party Description</string>
+    <string name="party_title">Party Title</string>
+    <string name="log_out">Log Out</string>
+    <string name="your_post">Your Post</string>
 </resources>

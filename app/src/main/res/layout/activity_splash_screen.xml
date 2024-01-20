@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
-    android:background="@color/white"
+    android:background="@color/logo">
     >
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:lineSpacingExtra="7dp"
-        android:text="Hassle-free food order management for Universiti Malaysia Pahang"
+        android:text="Hassle-free Party Invitations Applications"
         android:textAlignment="center"
         android:textColor="#445C6E"
         android:textSize="17dp"
@@ -30,7 +30,7 @@
         android:layout_height="390dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:src="@drawable/splash"
+        android:src="@drawable/partypallogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Food Delivery UMP"
+        android:text="PartyPal"
         android:textColor="#e74c3c"
         android:textSize="26dp"
         android:textStyle="bold"

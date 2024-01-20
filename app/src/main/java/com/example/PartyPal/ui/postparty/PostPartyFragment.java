@@ -47,13 +47,13 @@ public class PostPartyFragment extends Fragment {
             // Get user input from the form fields
             String partyTitle = editTextPartyTitle.getText().toString();
             String hostName = editTextHostName.getText().toString();
-            String contactInfo = editTextContactInfo.getText().toString();
+            String contactInformation = editTextContactInfo.getText().toString();
             String partyDescription = editTextPartyDescription.getText().toString();
-            String dateTime = editTextDateTime.getText().toString();
-            String location = editTextLocation.getText().toString();
+            String partyDate = editTextDateTime.getText().toString();
+            String partyLocation = editTextLocation.getText().toString();
 
             // Create a PartyModel object
-            PostPartyModel partyModel = new PostPartyModel(partyTitle, hostName, contactInfo, partyDescription, dateTime, location);
+            PostPartyModel partyModel = new PostPartyModel(partyTitle, hostName, contactInformation, partyDescription, partyDate, partyLocation);
 
             // Insert into Firebase Database
             String partyId = databaseReference.push().getKey();
@@ -62,12 +62,14 @@ public class PostPartyFragment extends Fragment {
                     .addOnSuccessListener(aVoid -> {
                         Log.d("Tag", "Party added successfully");
                         Toast.makeText(getContext(), "Party added successfully", Toast.LENGTH_SHORT).show();
-                        // You can add any further actions here if needed.
+
+                        // Finish the current activity and restart it
+                        getActivity().finish();
+                        startActivity(getActivity().getIntent());
                     })
                     .addOnFailureListener(e -> {
                         Log.e("Tag", "Error adding party", e);
                         Toast.makeText(getContext(), "Error adding party", Toast.LENGTH_SHORT).show();
-                        // Handle the error appropriately, e.g., show a toast or log the error.
                     });
         });
 

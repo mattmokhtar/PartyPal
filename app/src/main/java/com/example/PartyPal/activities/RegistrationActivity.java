@@ -26,7 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText mFullName, mEmail,mPassword;
     Button mRegisterBtn;
     TextView mLoginBtn;
-    FirebaseAuth foodOrdering;
+    FirebaseAuth partyPal;
 
 
 
@@ -41,9 +41,9 @@ public class RegistrationActivity extends AppCompatActivity {
         mRegisterBtn=findViewById(R.id.registerBtn);
         mLoginBtn=findViewById(R.id.signIn_text);
 
-        foodOrdering = FirebaseAuth.getInstance();
+        partyPal = FirebaseAuth.getInstance();
 
-        if(foodOrdering.getCurrentUser() !=null){
+        if(partyPal.getCurrentUser() !=null){
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
         }
@@ -71,13 +71,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
 
 
-                //register the user in the firebase
 
-                foodOrdering.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                partyPal.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = foodOrdering.getCurrentUser();
+                            FirebaseUser user = partyPal.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(displayName)
                                     .build();

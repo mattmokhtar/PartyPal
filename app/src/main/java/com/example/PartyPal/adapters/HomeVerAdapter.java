@@ -22,6 +22,7 @@ import java.util.Map;
 
 public class HomeVerAdapter extends RecyclerView.Adapter<HomeVerAdapter.ViewHolder> {
 
+<<<<<<< Updated upstream
 
     private BottomSheetDialog bottomSheetDialog;
     Context context;
@@ -30,12 +31,31 @@ public class HomeVerAdapter extends RecyclerView.Adapter<HomeVerAdapter.ViewHold
     public HomeVerAdapter(Context context,ArrayList<HomeVerModel>list){
         this.context = context;
         this.list = list;
+=======
+    private final ArrayList<HomeVerModel> list;
+    private final DatabaseReference databaseReference;
+    private final OnPartyLongClickListener onPartyLongClickListener;
+
+    public interface OnPartyLongClickListener {
+        void onPartyLongClick(int position);
+    }
+
+    public HomeVerAdapter(Context context, ArrayList<HomeVerModel> list, OnPartyLongClickListener listener) {
+        this.list = list != null ? list : new ArrayList<>();
+        this.onPartyLongClickListener = listener;
+        // Initialize Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference("parties");
+>>>>>>> Stashed changes
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+<<<<<<< Updated upstream
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_vertical_item,parent,false));
+=======
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_vertical_item, parent, false), onPartyLongClickListener);
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -108,10 +128,21 @@ public class HomeVerAdapter extends RecyclerView.Adapter<HomeVerAdapter.ViewHold
         return list.size();
     }
 
+<<<<<<< Updated upstream
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView name,timing,rating,price;
         public ViewHolder(@NonNull View itemView){
+=======
+    public DatabaseReference getDatabaseReference() {
+        return databaseReference;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView hostName, partyTitle, contactInformation, partyDescription, partyDate, partyLocation;
+
+        public ViewHolder(@NonNull View itemView, final OnPartyLongClickListener listener) {
+>>>>>>> Stashed changes
             super(itemView);
             imageView = itemView.findViewById(R.id.ver_img);
             name = itemView.findViewById(R.id.name);
@@ -120,6 +151,30 @@ public class HomeVerAdapter extends RecyclerView.Adapter<HomeVerAdapter.ViewHold
             price = itemView.findViewById(R.id.price);
 
 
+<<<<<<< Updated upstream
+=======
+            hostName = itemView.findViewById(R.id.hostName);
+            partyTitle = itemView.findViewById(R.id.partyTitle);
+            contactInformation = itemView.findViewById(R.id.contactInformation);
+            partyDescription = itemView.findViewById(R.id.partyDescription);
+            partyDate = itemView.findViewById(R.id.partyDate);
+            partyLocation = itemView.findViewById(R.id.partyLocation);
+
+            // Set long click listener on the item view
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onPartyLongClick(position);
+                            return true; // Consume the long click event
+                        }
+                    }
+                    return false;
+                }
+            });
+>>>>>>> Stashed changes
         }
 
     }

@@ -22,7 +22,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
+<<<<<<< Updated upstream
 
+=======
+    private EditText mEmail, mPassword;
+    private Button mLoginBtn;
+    private FirebaseAuth partyPal;
+>>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         mEmail = findViewById(R.id.loginEmail);
         mPassword = findViewById(R.id.loginPassword);
         mLoginBtn = findViewById(R.id.SignIn_btn);
-        foodOrdering = FirebaseAuth.getInstance();
+        partyPal = FirebaseAuth.getInstance();
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +70,37 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
+<<<<<<< Updated upstream
                 //authenticate the user
                 foodOrdering.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+=======
+                        // If biometric authentication fails, fall back to email/password authentication
+                        authenticateWithEmailAndPassword();
+                    }
+                });
+
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric Login")
+                .setSubtitle("Use your fingerprint or face recognition to log in")
+                .setNegativeButtonText("Cancel")
+                .build();
+
+        biometricPrompt.authenticate(promptInfo);
+    }
+
+    private void authenticateWithEmailAndPassword() {
+        String email = mEmail.getText().toString().trim();
+        String password = mPassword.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            Toast.makeText(LoginActivity.this, "Please enter email and password.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Authenticate the user with email/password
+        partyPal.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+>>>>>>> Stashed changes
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){

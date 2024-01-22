@@ -52,17 +52,27 @@ public class PostPartyFragment extends Fragment {
             String dateTime = editTextDateTime.getText().toString();
             String location = editTextLocation.getText().toString();
 
+
             // Create a PartyModel object
             PostPartyModel partyModel = new PostPartyModel(partyTitle, hostName, contactInfo, partyDescription, dateTime, location);
 
             // Insert into Firebase Database
-            String partyId = databaseReference.push().getKey();
+            String partyId = databaseReference.push().getKey(); // Generate a unique ID for the party
+
+            // Insert the party into the database
             assert partyId != null;
             databaseReference.child(partyId).setValue(partyModel)
                     .addOnSuccessListener(aVoid -> {
                         Log.d("Tag", "Party added successfully");
                         Toast.makeText(getContext(), "Party added successfully", Toast.LENGTH_SHORT).show();
+<<<<<<< Updated upstream
                         // You can add any further actions here if needed.
+=======
+
+                        // Finish the current activity and restart it
+                        requireActivity().finish();
+                        startActivity(getActivity().getIntent());
+>>>>>>> Stashed changes
                     })
                     .addOnFailureListener(e -> {
                         Log.e("Tag", "Error adding party", e);

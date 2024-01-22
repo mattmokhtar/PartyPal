@@ -16,6 +16,17 @@ public class HomeVerModel {
         this.rating=rating;
         this.timing=timing;
 
+<<<<<<< Updated upstream
+=======
+
+    public HomeVerModel(String partyId, String hostName, String partyTitle, String contactInformation, String partyDescription, String partyDate, String partyLocation) {
+        this.hostName = hostName;
+        this.partyTitle = partyTitle;
+        this.contactInformation = contactInformation;
+        this.partyDescription = partyDescription;
+        this.partyDate = partyDate;
+        this.partyLocation = partyLocation;
+>>>>>>> Stashed changes
     }
 
     public int getImage() {
@@ -56,5 +67,10 @@ public class HomeVerModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+
+    public String getPartyId() {
+        return null;
     }
 }
